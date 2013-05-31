@@ -1,0 +1,30 @@
+/*	CSS pour le header	*/
+
+#header {
+	border : 1px solid black ;
+}
+
+#title {
+	text-align : center ;
+}
+
+	#title h2 {
+		text-decoration : underline ;
+	}
+
+#mainMenu {
+}
+
+	#mainMenu div.inline {
+		display : inline-block ;
+		vertical-align : top ;
+	}
+
+	#recherche {
+		width : 70% ;
+	}
+
+	#loginBox {
+		width : 29% ;
+		border : 1px solid black;
+	}
