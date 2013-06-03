@@ -5,7 +5,8 @@
 	$vUser = "nf17p011" ;
 	$vPassword = "xub3EmKX" ;
 	$vConn = pg_connect("host=$vHost port=$vPort dbname=$vDbname user=$vUser password=$vPassword") ;
-	$login = $_SESSION['login'] ;
+	$login = NULL ;
+	if (isset($_SESSION['login'])) $login = $_SESSION['login'] ;
 ?>
 <div id="header">
 	<div id="title">

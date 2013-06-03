@@ -14,17 +14,29 @@
 		<h1>RECHERCHE AVANCEE</h1>
 		
 		<form method="POST" action="recherche.php">
-			<span>Titre : <input type="text" name=title /></span><br/>
-			<span>Type : <select>
-   					<option value="DocVideo">Document Vidéo</option>
-   					<option value="DocAudio">Document Audio</option>
-   					<option value="DocTexte">Document Texte</option>
-				     </select>
+			<span>Titre : <input type="text" name="title" /></span><br/>
+			<span>Type : 
+				<label>Vidéo </label><input type="radio" name="type" value="vid"><br>
+				<label>Sonore </label><input type="radio" name="type" value="son"><br>
+				<label>Texte </label><input type="radio" name="type" value="text"><br>
+				<label>Tout type </label><input type="radio" name="type" value="tous">
 			</span><br/> 	
 		
-			<span>Date d'apparition : <input type="date" name=date /><br/><br/>
+			<span>Date de parution : </span>
+			<select name="annee" />
+				<option value="-1">Ne pas prendre en compte la date</option>			
+				<?php 
+					$vSql = "SELECT distinct date_part('year', adate_p) AS date FROM tdocuments ORDER BY date DESC;";
+					$vQuery = pg_query($vConn,$vSql) ;
+					while($res = pg_fetch_array($vQuery)){
+					echo '<option value="'.$res['date'].'">'.$res['date'].'</option>';
+				}?>
+			</select>
+			<br/><br/>
 			<input type="submit" value="Rechercher"/>
 		</form>
+		
+		<?php include('traitement.php');?>
 			
 		<p><a href="index.php">Retour</a></p>
 	</body>
