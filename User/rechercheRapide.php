@@ -20,7 +20,7 @@
 			if(!isset($nom))  header('Location: index.php?erreur=NoEntry') ;
 			else {
 				if($typeRech=="auteur") {
-					$vSql = "SELECT D.atitre, D.aediteur, D.fknomcat, D.fknommedia, D.fknomcol, D.adate_p, D.alangue, D.anb_exemp, P.anom, P.aprenom FROM tauteurs A, tpersonnes P, tredaction R, tdocuments D WHERE A.pkidcontri = P.pkid AND R.pkidaut = A.pkidcontri AND R.pkcodedoc = D.pkcode AND (P.anom LIKE '%".$nom."%' OR P.aprenom LIKE '%".$nom."');" ;
+					$vSql = "SELECT D.atitre, D.aediteur, D.fknomcat, D.fknommedia, D.fknomcol, D.adate_p, D.alangue, D.anb_exemp, P.anom, P.aprenom FROM tauteurs A, tpersonnes P, tredaction R, tdocuments D WHERE A.pkidcontri = P.pkid AND R.pkidaut = A.pkidcontri AND R.pkcodedoc = D.pkcode AND (P.anom LIKE '%".$nom."%' OR P.aprenom LIKE '%".$nom."%');" ;
 					$complement = "<th>Auteur</th>";
 					$complement2 = '$res['."'aprenom'".']." ".$res['."'anom'".']';
 					$complement2 = 'echo "<td>".'.$complement2.'."</td>";';
