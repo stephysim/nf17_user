@@ -14,7 +14,6 @@
 		<?php include('header.php');
 			$vSql = "SELECT distinct aencodage FROM tdocvideos;";
 			$vQuery = pg_query($vConn,$vSql);
-			$res = pg_fetch_array($vQuery);
 			while($res = pg_fetch_array($vQuery)){
 				if (isset($formatsV))
 					$formatsV = $formatsV.','.$res['aencodage'];
@@ -24,7 +23,6 @@
 			
 			$vSql = "SELECT distinct aencodage FROM tdocsonores;";
 			$vQuery = pg_query($vConn,$vSql);
-			$res = pg_fetch_array($vQuery);
 			while($res = pg_fetch_array($vQuery)){
 				if (isset($formatsA))
 					$formatsA = $formatsA.','.$res['aencodage'];
